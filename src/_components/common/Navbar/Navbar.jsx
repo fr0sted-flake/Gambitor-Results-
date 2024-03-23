@@ -1,10 +1,9 @@
 "use client"
-import smpLogo from "@/images/SMP-Logo.png"
 import styles from "./Navbar.module.css"
 import Image from 'next/image'
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 const Navbar = ({transparency}) => {
     const router = useRouter()
@@ -24,7 +23,7 @@ const Navbar = ({transparency}) => {
             <div className={styles.navbar_main_left}>
                 <div className={styles.img_holder_navbar}>
                     <Image
-                        src={smpLogo}
+                        
                     />
                 </div>
                 <div className={styles.smp_heading_navbar}>

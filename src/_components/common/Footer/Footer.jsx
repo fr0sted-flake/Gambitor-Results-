@@ -1,12 +1,6 @@
 "use client"
 import styles from "./Footer.module.css";
 import Image from "next/image";
-import smpLogo from "@/images/SMP-Logo.png"
-import twitterIcon from '@/images/common/footer/twitterIcon.svg'
-import instagramIcon from '@/images/common/footer/instagramIcon.svg'
-import gmailIcon from '@/images/common/footer/gmailIcon.svg'
-import facebookIcon from '@/images/common/footer/facebookIcon.svg'
-import linkedinIcon from '@/images/common/footer/linkedinIcon.svg'
 import { usePathname } from "next/navigation";
 
 const Footer = () => {
@@ -21,7 +15,7 @@ const Footer = () => {
                 <div className={styles.footer_main_left}>
                     <div className={styles.footer_main_left_heading}>
                         <div className={styles.footer_main_left_heading_logo}>
-                            <Image src={smpLogo} />
+                            {/* <Image src={smpLogo} /> */}
                         </div>
                         <hr />
                         <div className={styles.footer_main_left_heading_text}>
@@ -64,11 +58,11 @@ const Footer = () => {
                 <div className={styles.footer_main_right}>
                     <div className={styles.footer_main_right_icons}>
                         {
-                            [twitterIcon, instagramIcon, gmailIcon, facebookIcon, linkedinIcon].map((icon, index) => {
-                                return (
-                                    <Image src={icon} />
-                                )
-                            })
+                            // [twitterIcon, instagramIcon, gmailIcon, facebookIcon, linkedinIcon].map((icon, index) => {
+                            //     return (
+                            //         <Image />
+                            //     )
+                            // })
                         }
                     </div>
                 </div>
