@@ -1,9 +1,11 @@
-import { Inter } from "next/font/google";
+import { Goldman } from "next/font/google";
 import "./globals.css";
 import Header from "@/_components/common/Header/Header";
 import Footer from "@/_components/common/Footer/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const goldman = Goldman({ subsets: ["latin"],
+weight: "400",
+variable: '--font-goldman', });
 
 export const metadata = {
   title: "Gambitor",
@@ -13,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={goldman.className}>
         <Header />
         {children}
         <Footer />

@@ -10,6 +10,10 @@ module.exports = {
       backgroundImage: {
         "gambitor_main_img": "url('/images/common/background/Gambitor.png')",
       },
+      fontFamily: {
+        gold: ['var(--font-goldman)'],
+        
+      },
     },
   },
   plugins: [],

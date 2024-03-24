@@ -25,22 +25,22 @@ const Header = () => {
         </div>
         <ul className={styles.navbar_right}>
           <li>
-            <Link href="about" className={styles.tags}>
+            <Link href="about" className={styles.tags + " font-gold"}>
               ABOUT
             </Link>
           </li>
           <li>
-            <Link href="events" className={styles.tags}>
+            <Link href="events" className={styles.tags + " font-gold"}>
               EVENTS
             </Link>
           </li>
           <li>
-            <Link href="contact" className={styles.tags}>
+            <Link href="contact" className={styles.tags + " font-gold"}>
               CONTACT
             </Link>
           </li>
           <li>
-            <Link href="results" className={styles.result + " " +styles.tags}>
+            <Link href="results" className={styles.result + " " +styles.tags + " font-gold"}>
               RESULTS
             </Link>
           </li>
