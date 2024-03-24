@@ -12,20 +12,18 @@ const Header = () => {
     <header>
       <div
         id="navbar"
-        className="h-16vh w-full pt-3vh fixed z-50 flex items-start justify-between transition-colors duration-300 ease-in-out"
+        className="h-[16vh] w-full pt-[3vh] fixed z-50 flex items-start justify-between transition-colors duration-300 ease-in-out"
       >
-        <div className="ml-5vw w-20vw h-13vh flex items-center">
-          <div className="relative w-3.5vw m-0 mb-12">
-            <Link href="/">
-              <Image className={styles.img1} src={horseLogo} />
-            </Link>
-          </div>
+        <div className="ml-[5vw] w-[20vw] h-[13vh] flex items-center">
+          <Link href="/">
+            <Image className={styles.img1} src={horseLogo} />
+          </Link>
 
           <Link href="/">
             <Image src={gambitor} className={styles.img2} />
           </Link>
         </div>
-        <ul className=" flex justify-evenly items-center mx-1.5vw mb-16 h-80">
+        <ul className={styles.navbar_right}>
           <li>
             <Link href="about" className={styles.tags}>
               ABOUT
@@ -42,7 +40,7 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link href="results" className={styles.tags}>
+            <Link href="results" className={styles.result + " " +styles.tags}>
               RESULTS
             </Link>
           </li>
