@@ -8,6 +8,21 @@
   height: auto;
 }
 
+.navbar {
+  height: 16vh;
+  width: 100%;
+  padding-top: 3vh;
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.scrolled {
+  background-color: #150E4E;
+}
 .navbar_right {
   display: flex;
   justify-content: space-evenly;

@@ -1,6 +1,6 @@
 "use client";
 import styles from "./Header.module.css";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,35 +8,35 @@ import horseLogo from "@/images/common/header/horse.png";
 import gambitor from "@/images/common/header/gambitor-letters.png";
 
 const Header = () => {
-  let scrollingDiv = "";
-  let bgColour = "bg-" + scrollingDiv;
+  const [scrolling, setScrolling] = useState(false);
+  const router = useRouter();
+
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-
-      if (scrollPosition > 40) {
-        scrollingDiv = "#150E4E";
+      if (window.scrollY > 40) {
+        setScrolling(true);
       } else {
-        scrollingDiv = "rgba(255, 255, 255, 0)";
+        setScrolling(false);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Add scroll listener only when component is mounted client-side
+    if (typeof window !== 'undefined') {
+      window.addEventListener("scroll", handleScroll);
+    }
 
-    // Clean up the event listener when the component unmounts
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener("scroll", handleScroll);
+      }
     };
-  }); // Removed the dependency array
+  }, [router.pathname]); // Reattach listener when pathname changes
 
   return (
     <header>
       <div
         id="navbar"
-        className={
-          "h-[16vh] w-full pt-[3vh] fixed z-50 flex items-start justify-between transition-colors duration-300 ease-in-out }" +
-          bgColour
-        }
+        className={`${styles.navbar} ${scrolling ? styles.scrolled : ""}`}
       >
         <div className="ml-[5vw] w-[20vw] h-[13vh] flex items-center">
           <Link href="/">
