@@ -8,11 +8,35 @@ import horseLogo from "@/images/common/header/horse.png";
 import gambitor from "@/images/common/header/gambitor-letters.png";
 
 const Header = () => {
+  let scrollingDiv = "";
+  let bgColour = "bg-" + scrollingDiv;
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition > 40) {
+        scrollingDiv = "#150E4E";
+      } else {
+        scrollingDiv = "rgba(255, 255, 255, 0)";
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }); // Removed the dependency array
+
   return (
     <header>
       <div
         id="navbar"
-        className="h-[16vh] w-full pt-[3vh] fixed z-50 flex items-start justify-between transition-colors duration-300 ease-in-out"
+        className={
+          "h-[16vh] w-full pt-[3vh] fixed z-50 flex items-start justify-between transition-colors duration-300 ease-in-out }" +
+          bgColour
+        }
       >
         <div className="ml-[5vw] w-[20vw] h-[13vh] flex items-center">
           <Link href="/">
@@ -40,7 +64,10 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link href="results" className={styles.result + " " +styles.tags + " font-gold"}>
+            <Link
+              href="results"
+              className={styles.result + " " + styles.tags + " font-gold"}
+            >
               RESULTS
             </Link>
           </li>
