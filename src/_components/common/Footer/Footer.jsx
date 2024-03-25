@@ -10,7 +10,7 @@ const Footer = () => {
     }
 
     return (
-        <div>fgjhrdthdrthr</div>
+        <div className={styles.div}>fgjhrdthdrtdu56ur65urthr</div>
        
     );
 }

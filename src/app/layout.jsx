@@ -2,6 +2,7 @@ import { Goldman } from "next/font/google";
 import "./globals.css";
 import Header from "@/_components/common/Header/Header";
 import Footer from "@/_components/common/Footer/Footer";
+import Background from "@/_components/common/Background/Background";
 
 const goldman = Goldman({ subsets: ["latin"],
 weight: "400",
@@ -16,9 +17,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={goldman.className}>
+       <Background/>
         <Header />
         {children}
-        <Footer />
+        <Footer  />
       </body>
     </html>
   );
