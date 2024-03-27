@@ -14,7 +14,7 @@ export default function Home() {
     e.preventDefault();
 
     if (name.trim() !== "" && email.trim() !== "") {
-      router.push(`/result/${name}`);
+      router.push(`/result/${name}?email=${email}`);
     } else {
       if (name.trim() === "") {
         alert("Please enter a name");
