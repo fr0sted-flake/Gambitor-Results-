@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
+import styles from "./result.module.css";
 
 function Result() {
   const [sheetData, setSheetData] = useState(null);
@@ -21,40 +22,39 @@ function Result() {
         const text = await response.text();
         const data = JSON.parse(text.substr(47).slice(0, -2));
 
-        // Filter data based on input name and email
         const filteredData = data.table.rows.filter((row) => {
           const name = row.c[0].v;
           const email = row.c[1].v;
           return name === fullName && email === emailId;
         });
 
-        // Assuming only one row matches, extract marks
         if (filteredData.length > 0) {
           const marks = filteredData[0].c[2].v;
           setSheetData(marks);
         } else {
-          setSheetData(null); // No match found
+          setSheetData(null);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
-        setSheetData(null); // Reset sheetData in case of error
+        setSheetData(null);
       }
     };
 
     fetchData();
-  }, [fullName, emailId]); // Re-run effect when fullName or emailId changes
+  }, [fullName, emailId]);
 
   return (
     <div>
       {sheetData !== null ? (
-        <div>
-          <h1>
-            Marks for {fullName} ({emailId})
+        <div className={styles.main_div}>
+          <h1 className={styles.marks_h1}>
+            Marks for {fullName} with email id: {emailId} is {sheetData}!!
           </h1>
-          <p>Marks: {sheetData}</p>
+          <div><button>Print Certificate</button></div>
+          
         </div>
       ) : (
-        <p>
+        <p className={styles.error}>
           No data found for {fullName} ({emailId}).
         </p>
       )}
