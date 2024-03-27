@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <div className="pt-16vh flex flex-col justify-around items-center">
       <div className="w-[30vw] h-[15vh] mt-[20vh] pb-[8vh]">
-        <Image src={result}></Image>
+        <Image src={result} alt="result"></Image>
       </div>
       <div className="relative w-[48vw]">
         <Image className="w-full" src={form}></Image>
