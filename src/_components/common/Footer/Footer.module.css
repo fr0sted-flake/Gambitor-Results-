@@ -1,9 +1,11 @@
 .footer {
     font-family: "Jost", sans-serif;
-    margin-top: 20vh;
+    padding-top: 20vh;
     height: 40%;
     display: flex;
     justify-content: center;
+    background-image: url('/images/common/background/Gambitor.png');
+    background-size: cover;
   }
   
   .logoF {
