@@ -30,7 +30,7 @@ const Header = () => {
         window.removeEventListener("scroll", handleScroll);
       }
     };
-  }, [router.pathname]); // Reattach listener when pathname changes
+  }, [router.pathname]); 
 
   return (
     <header>
