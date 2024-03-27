@@ -51,7 +51,6 @@ function Result() {
             Marks for {fullName} with email id: {emailId} is {sheetData}!!
           </h1>
           <div><button>Print Certificate</button></div>
-          
         </div>
       ) : (
         <p className={styles.error}>
