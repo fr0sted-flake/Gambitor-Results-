@@ -1,8 +1,36 @@
+"use client";
 import Image from "next/image";
 import result from "@/images/pages/home/results.svg";
 import form from "@/images/pages/home/form.svg";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const buttonClick = (e) => {
+    e.preventDefault();
+
+    if (name.trim() !== "" && email.trim() !== "") {
+      router.push(`/result/${name}`);
+    } else {
+      if (name.trim() === "") {
+        alert("Please enter a name");
+      } else if (email.trim() === "") {
+        alert("Please enter an email");
+      }
+    }
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
   return (
     <div className="pt-16vh flex flex-col justify-around items-center">
       <div className="w-[30vw] h-[15vh] mt-[20vh] mb-[8vh]">
@@ -27,6 +55,7 @@ export default function Home() {
                   id="name"
                   name="name"
                   required
+                  onChange={handleNameChange}
                   className="w-[28vw] h-[3vw] text-yellow-400 text-[1.5vw] border-2 border-yellow-400 rounded-md bg-opacity-10 bg-white"
                 />
               </div>
@@ -45,8 +74,10 @@ export default function Home() {
                   type="email"
                   id="email"
                   name="email"
+                  required 
+                  onChange={handleEmailChange}
                   className="w-[28vw] h-[3vw] text-yellow-400 text-[1.5vw] border-2 border-yellow-400 rounded-md bg-opacity-10 bg-white"
-                  required
+                  
                 />
               </div>
             </div>
@@ -56,7 +87,10 @@ export default function Home() {
             <button
               className="mt-[3vw] mr-[2.5vw] bg-yellow-400 w-[15vw] h-[3vw] text-white border-none rounded-md text-[1.5vw] font-normal font-goldman text-center"
               id="google"
-            >Show Result</button>
+              onClick={buttonClick}
+            >
+              Show Result
+            </button>
           </div>
         </div>
       </div>
